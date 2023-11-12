@@ -1,8 +1,8 @@
 "use client";
 
-import { Fragment, useEffect, useState } from "react";
 import Image from "next/image";
-import logo from "../assets/images/logo.png";
+import { useEffect, useState } from "react";
+import logo from "../assets/icons/logo.svg";
 
 export default function Navbar() {
   const [windowHeight, setWindowHeight] = useState(0);
@@ -31,7 +31,11 @@ export default function Navbar() {
         windowHeight > 0 && " shadow-xl"
       } fixed bg-white top-0 left-0 w-full`}
     >
-      <div className={`${windowHeight>0?"py-3":"py-5"} transition-all duration-300 flex container justify-between items-center`}>
+      <div
+        className={`${
+          windowHeight > 0 ? "py-3" : "py-5"
+        } transition-all duration-300 flex container justify-between items-center`}
+      >
         <div>
           <Image src={logo} />
         </div>
