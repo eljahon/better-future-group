@@ -12,7 +12,10 @@ module.exports = {
       colors: {
         'blue': '#2EB1FC',
         'white': "#fff",
-        'wblue': "rgba(46, 177, 252, 0.15)"
+        'wblue': "rgba(46, 177, 252, 0.15)",
+        "our":"rgba(51, 51, 51, 0.02)",
+        "greey": "rgba(39, 174, 96, 0.15)",
+        "link": "#27AE60"
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
