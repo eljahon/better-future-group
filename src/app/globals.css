@@ -2,9 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
+.container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+@media (min-width: 1400px) {
   .container {
-    @apply w-full max-w-[1200px] mx-auto px-32;
+    width: 1300px;
   }
 }
 
