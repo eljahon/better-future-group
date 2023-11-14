@@ -6,14 +6,14 @@ import TypeWriter from "typewriter-effect";
 export default function GlobalProblems() {
   return (
     <div id="home">
-      <div className="flex gap-6 items-center h-screen overflow-hidden">
+      <div className="flex gap-6 items-center min-[850px]:h-screen overflow-hidden ">
         <div className="text my-auto min-[850px]:w-1/2 min-[850px]:py-0 py-10">
           <div>
-            <h2 className="text-5xl font-semibold">
+            <h2 className="text-3xl sm:text-5xl font-bold">
               Launching startups to <span className="text-blue">solve</span>{" "}
               global <span className="text-blue">problems</span>
             </h2>
-            <div className="mt-4 font-normal text-lg">
+            <div className="mt-4 font-normal sm:text-lg text-base">
               <TypeWriter
                 options={{
                   strings: [
