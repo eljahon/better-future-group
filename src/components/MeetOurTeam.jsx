@@ -80,7 +80,7 @@ const MeetOurTeam = () => {
             and foster a culture that empowers you to do your best work.
           </p>
         </div>
-        <div className="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 gap-4 mt-4 md:mt-16 justify-center">
+        <div className="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 gap-4 mt-4 md:mt-16 flex">
           {list.map((el, index) => (
             <UserItem key={index} {...el} />
           ))}

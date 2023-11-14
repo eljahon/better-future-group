@@ -35,8 +35,8 @@ const ourList = [
 const OurProjects = () => (
   <div className="container" id="our-projects">
     <div className="py-16">
-      <h1 className="text-2xl mb-14 font-semibold">Our projects</h1>
-      <div className="flex">
+      <h1 className="text-2xl mb-10 font-semibold sm:mb-10">Our projects</h1>
+      <div className="grid lg:grid-cols-4 sm:grid-cols-2 md:grid-cols-2 md:gap-4">
         {ourList.map((el, index) => (
           <SlickIItem key={index} {...el} />
         ))}

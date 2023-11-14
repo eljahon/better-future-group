@@ -41,10 +41,9 @@ const Footer = () => {
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d191884.83986977686!2d69.11455270729545!3d41.28273794683044!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38ae8b0cc379e9c3%3A0xa5a9323b4aa5cb98!2sTashkent%2C%20Uzbekistan!5e0!3m2!1sen!2s!4v1699902950849!5m2!1sen!2s"
             style={{ border: "0" }}
-            allowfullscreen=""
             loading="lazy"
             className="h-full w-full"
-            referrerpolicy="no-referrer-when-downgrade"
+            referrerPolicy="no-referrer-when-downgrade"
           ></iframe>
         </div>
       </div>
@@ -56,8 +55,8 @@ const Footer = () => {
         className="fixed shadow-xl bottom-0 left-0 w-full z-50 py-4 bg-white block min-[850px]:hidden"
       >
         <div className="container flex justify-between items-center">
-          {navList.map((el) => (
-            <li className="w-7 sm:w-10">
+          {navList.map((el, index) => (
+            <li key={index} className="w-7 sm:w-10">
               <a href={el.idText} className="w-full">
                 <Image className="w-full" src={el.icon} alt={el.name} />
               </a>

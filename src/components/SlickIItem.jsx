@@ -1,7 +1,7 @@
 import Image from "next/image";
 const SlickIItem = (props) => {
     const {text, icon, btnText, link, top} = props
-    return <div>
+    return <div className='mt-3'>
         <div className='flex items-center justify-center text-base'>
             <Image src={icon} alt="img"/>
         </div>
