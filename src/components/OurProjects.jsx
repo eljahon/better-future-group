@@ -1,3 +1,4 @@
+'use client'
 import Image from "next/image";
 import wasteless from "../assets/icons/wasteless.svg";
 import trator from "../assets/icons/trator.svg";

@@ -14,7 +14,6 @@
     "react-carousel": "^4.3.0",
     "react-dom": "^18",
     "react-slick": "^0.29.0",
-    "slick-carousel": "^1.8.1",
     "swiper": "^11.0.4",
     "typewriter-effect": "^2.21.0"
   },

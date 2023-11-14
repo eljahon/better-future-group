@@ -45,6 +45,15 @@ const Footer = () => {
             className="h-full w-full"
             referrerPolicy="no-referrer-when-downgrade"
           ></iframe>
+          {/*<iframe*/}
+          {/*    width="600"*/}
+          {/*    height="450"*/}
+          {/*    frameBorder="0"*/}
+          {/*    className="h-full w-full"*/}
+          {/*    style={{border: '0'}}*/}
+          {/*    src="https://yandex.com/maps/1abe9aa1-66ec-4c7f-8b93-a4e0bc25319e?lang=LANGUAGE_CODE&ll=LONGITUDE,LATITUDE&z=ZOOM_LEVEL"*/}
+          {/*    allowFullScreen*/}
+          {/*></iframe>*/}
         </div>
       </div>
       <ul

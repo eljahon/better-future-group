@@ -22,6 +22,7 @@ const Slick = ({ children }) => {
   };
 
   return <Swiper {...settings}>{children}</Swiper>;
+  // return <div></div>
 };
 
 export default Slick;
