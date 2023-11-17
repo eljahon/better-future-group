@@ -13,6 +13,7 @@ export default function GlobalProblems() {
               Launching startups to <span className="text-blue">solve</span>{" "}
               global <span className="text-blue">problems</span>
             </h2>
+            <span></span>
             <div className="mt-4 font-normal sm:text-lg text-base">
               <TypeWriter
                 options={{
