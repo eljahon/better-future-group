@@ -4,9 +4,12 @@ import wasteless from "../assets/icons/wasteless.svg";
 import trator from "../assets/icons/trator.svg";
 import coozin from "../assets/icons/coozin.svg";
 import growz from "../assets/icons/growz.svg";
-import SlickIItem from "@/components/SlickIItem";
+import SlickIItem from "./SlickIItem";
 import { Swiper, SwiperSlide } from "swiper/react";
-
+import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
+import ru from '../app/i18n/locales/ru/translation.json'
+import uz from '../app/i18n/locales/uz/translation.json'
+import en from '../app/i18n/locales/en/translation.json'
 const ourList = [
   {
     icon: wasteless,
@@ -36,6 +39,7 @@ const ourList = [
 ];
 
 const settings = {
+
   pagination: {
     clickable: true,
   },
@@ -62,18 +66,29 @@ const settings = {
   },
 };
 
-const OurProjects = () => (
-  <div className="container" id="our-projects">
-    <div className="py-6 md:py-16">
-      <h1 className="text-2xl mb-6 md:mb-14 font-semibold">Our projects</h1>
-      <Swiper {...settings}>
-        {ourList.map((el, index) => (
-          <SwiperSlide key={index}>
-            <SlickIItem {...el} />
-          </SwiperSlide>
-        ))}
-      </Swiper>
+
+const OurProjects = ({ data, lng }) => {
+  const langData = {
+    uz,
+    ru,
+    en
+  }
+  return (
+    <div className="container" id="our-projects">
+      <div className="py-6 md:py-16">
+        <h1 className="text-2xl mb-6 md:mb-14 font-semibold">
+
+          {langData[lng].ourproject}
+        </h1>
+        <Swiper {...settings} modules={[Navigation, Pagination, Scrollbar, A11y]}>
+          {data && data.map((el, index) => (
+            <SwiperSlide key={index}>
+              <SlickIItem {...el} lng={lng} />
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </div>
     </div>
-  </div>
-);
+  )
+};
 export default OurProjects;

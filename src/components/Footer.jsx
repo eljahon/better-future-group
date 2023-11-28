@@ -1,31 +1,47 @@
+'use client'
 import Image from "next/image";
 
-import logo from "@/assets/icons/logo.svg";
-import home from "@/assets/icons/home-icon.svg";
-import contactUs from "@/assets/icons/contact-us.png";
-import aboutUs from "@/assets/icons/about.svg";
-import ourTeam from "@/assets/icons/our-team.png";
-import ourProjects from "@/assets/icons/ourproject.png";
-import OurProducts from "@/assets/icons/products.png";
-
+import logo from "../assets/icons/logo.svg";
+import home from "../assets/icons/home-icon.svg";
+import contactUs from "../assets/icons/contact-us.png";
+import aboutUs from "../assets/icons/about.svg";
+import ourTeam from "../assets/icons/our-team.png";
+import ourProjects from "../assets/icons/ourproject.png";
+import OurProducts from "../assets/icons/products.png";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import { useEffect } from "react"
+import ru from '../app/i18n/locales/ru/translation.json'
+import uz from '../app/i18n/locales/uz/translation.json'
+import en from '../app/i18n/locales/en/translation.json'
 const navList = [
-  { name: "Home", id: 1, idText: "#home", icon: home },
-  { name: "Our products", id: 2, idText: "#our-products", icon: OurProducts },
-  { name: "Our projects", id: 3, idText: "#our-projects", icon: ourProjects },
-  { name: "About us", id: 4, idText: "#about-us", icon: aboutUs },
-  { name: "Our team", id: 5, idText: "#our-team", icon: ourTeam },
-  { name: "Contact us", id: 6, idText: "#contact-us", icon: contactUs },
+  { name: { ru: "Главный", en: "Home", uz: "Bosh sahifa" }, id: 1, idText: "#home", icon: home },
+  { name: { ru: "Наши продукты", en: "Our products", uz: "Mahsulotlarimiz" }, id: 2, idText: "#our-products", icon: OurProducts },
+  { name: { ru: "Наши проекты", en: "Our projects", uz: "Loyihalarimiz" }, id: 3, idText: "#our-projects", icon: ourProjects },
+  { name: { ru: "О нас", en: "About us", uz: "Biz haqimizda" }, id: 4, idText: "#about-us", icon: aboutUs },
+  { name: { ru: "Наша команда", en: "Our team", uz: "Bizning jamoamiz" }, id: 5, idText: "#our-team", icon: ourTeam },
+  { name: { ru: "Связаться с нами", en: "Contact us", uz: "Biz bilan bog'lanish" }, id: 6, idText: "#contact-us", icon: contactUs },
 ];
 
-const Footer = () => {
+
+const Footer = ({ lng }) => {
+  useEffect(() => {
+    AOS.init();
+  }, [])
+  const langData = {
+    uz,
+    ru,
+    en
+  }
   return (
-    <footer className="mt-20">
-      <div className="h-full justify-between gap-4 py-6 mt-8 md:mt-16 container hidden min-[850px]:flex">
+    <footer data-aos-duration="1000" className="mt-20" >
+      <div data-aos="zoom-in" className="h-full justify-between gap-4 py-6 mt-8 md:mt-16 container hidden min-[850px]:flex">
         <div className="flex flex-col justify-between h-[300px] w-[250px]">
           <div>
             <Image src={logo} alt="img" />
             <p className="py-3">
-              Build nor highlights indicators way feltworks.
+
+              {langData[lng].footerText}
             </p>
           </div>
           <div>© BetterFutureGroup 2023</div>
@@ -33,7 +49,7 @@ const Footer = () => {
         <ul className="flex flex-col gap-5">
           {navList?.map((el) => (
             <li className="text-base font-medium" key={el.id}>
-              <a href={el.idText}>{el.name}</a>
+              <a href={el.idText}>{el.name[lng]}</a>
             </li>
           ))}
         </ul>
@@ -61,13 +77,13 @@ const Footer = () => {
           boxShadow:
             "0 -20px 25px -5px rgb(0 0 0 / 0.1), 0 -8px 10px -6px rgb(0 0 0 / 0.1)",
         }}
-        className="fixed shadow-xl bottom-0 left-0 w-full z-50 py-4 bg-white block min-[850px]:hidden"
+        className="fixed shadow-xl bottom-0 left-0 w-full z-50 py-4 bg-white block min-[950px]:hidden"
       >
         <div className="container flex justify-between items-center">
           {navList.map((el, index) => (
             <li key={index} className="w-7 sm:w-10">
               <a href={el.idText} className="w-full">
-                <Image className="w-full" src={el.icon} alt={el.name} />
+                <Image className="w-full" src={el.icon} alt={el.name[lng]} />
               </a>
             </li>
           ))}

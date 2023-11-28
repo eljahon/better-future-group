@@ -1,17 +1,32 @@
 import Image from "next/image";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import { useEffect } from "react";
+import ru from '../app/i18n/locales/ru/translation.json'
+import uz from '../app/i18n/locales/uz/translation.json'
+import en from '../app/i18n/locales/en/translation.json'
 const SlickIItem = (props) => {
-  const { text, icon, btnText, link, top } = props;
+
+  useEffect(() => {
+    AOS.init();
+  }, [])
+
+  const langData = {
+    uz,
+    ru,
+    en
+  }
   return (
-    <div>
+    <div data-aos="fade-up-right">
       <div className="flex justify-center text-base">
-        <Image src={icon} alt="img" />
+        <Image className="h-[100px]" src={`http://localhost:1337${props?.img?.url}`} width={100} height={100} alt="img" />
       </div>
-      <p className={top ? "mt-[64px] text-center" : "mt-4 text-center"}>
-        {text}
+      <p className="mt-4 text-center min-h-[60px] h-full ">
+        {props?.[`desc_${props.lng}`]}
       </p>
-      <div className="mx-auto mt-5 text-base flex items-center justify-center bg-greey w-3/4 py-2.5 px-5">
-        <a className="text-link" href={link} target={"_blank"}>
-          {btnText}
+      <div className="mx-auto mt-5 text-base flex items-center justify-center bg-[#27ae6026] w-3/4 py-2.5 px-5">
+        <a className="text-link text-[#27AE60]" href={props?.link} target={"_blank"}>
+          {langData[props.lng].site}
         </a>
       </div>
     </div>

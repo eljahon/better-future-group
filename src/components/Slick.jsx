@@ -1,6 +1,6 @@
 "use client";
 import { Swiper, SwiperSlide } from "swiper/react";
-
+import { Navigation, Pagination, Scrollbar, A11y, EffectCards, EffectCube } from 'swiper/modules';
 const Slick = ({ children }) => {
   const settings = {
     pagination: {
@@ -21,7 +21,7 @@ const Slick = ({ children }) => {
     },
   };
 
-  return <Swiper {...settings}>{children}</Swiper>;
+  return <Swiper modules={[Navigation, Pagination, Scrollbar, A11y, EffectCube]} {...settings}>{children}</Swiper>;
   // return <div></div>
 };
 
