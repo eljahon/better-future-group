@@ -9,13 +9,6 @@ import Navbar from '@/components/Navbar'
 import OurProducts from '@/components/OurProducts'
 import OurProjects from '@/components/OurProjects'
 
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap-trial/ScrollTrigger';
-import { ScrollSmoother } from 'gsap-trial/ScrollSmoother';
-import { useGSAP } from '@gsap/react';
-
-gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
-
 export default function Homepage({ data, lng }) {
 
     return (

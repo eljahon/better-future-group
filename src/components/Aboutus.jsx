@@ -21,7 +21,7 @@ const Aboutus = ({ data, lng }) => {
     <div id="about-us">
       <div className="flex gap-8 py-5 md:py-16 flex-col md:flex-row">
         <div data-aos="fade-right" className="abaut-image w-full sm:w-3/4 md:w-1/2 mx-auto">
-          <Image src={`http://localhost:1337${data?.img?.url}`} width={588} height={522} alt="img" />
+          <Image src={`${process.env.NEXT_PUBLIC_IMAGE_URL}${data?.img?.url}`} width={588} height={522} alt="img" />
         </div>
         <div data-aos="fade-left" className="abaout-text my-auto w-full md:w-1/2">
           <div className="md:w-3/4 w-full text-center md:text-start">

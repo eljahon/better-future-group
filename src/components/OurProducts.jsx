@@ -61,7 +61,7 @@ const OurProducts = ({ data, lng }) => {
                         {data.map((el, index) => (
                             <SwiperSlide key={index}>
                                 <div key={index} className="w-full relative">
-                                    <Image className="w-full max-h-64" src={`http://localhost:1337${el?.img?.url}`} width={300} height={300} alt={"img"} />
+                                    <Image className="w-full max-h-64" src={`${process.env.NEXT_PUBLIC_IMAGE_URL}${el?.img?.url}`} width={300} height={300} alt={"img"} />
                                     <div className="absolute top-1/2 -translate-y-1/2 left-4 sm:left-6 w-2/5">
                                         <p className="text-white line-clamp-3 sm:line-clamp-none">
                                             {el?.[`desc_${lng}`]}

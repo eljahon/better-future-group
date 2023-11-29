@@ -19,7 +19,7 @@ const SlickIItem = (props) => {
   return (
     <div data-aos="fade-up-right">
       <div className="flex justify-center text-base">
-        <Image className="h-[100px]" src={`http://localhost:1337${props?.img?.url}`} width={100} height={100} alt="img" />
+        <Image className="h-[100px]" src={`${process.env.NEXT_PUBLIC_IMAGE_URL}${props?.img?.url}`} width={100} height={100} alt="img" />
       </div>
       <p className="mt-4 text-center min-h-[60px] h-full ">
         {props?.[`desc_${props.lng}`]}

@@ -21,7 +21,7 @@ const UserItem = (props) => {
 
   return (
     <div className="text-center" data-aos="fade-up-right">
-      <Image className="mx-auto rounded-full w-[100px] h-[100px] object-cover" src={`http://localhost:1337${props?.img?.url}`} width={100} height={100} alt="img" />
+      <Image className="mx-auto rounded-full w-[100px] h-[100px] object-cover" src={`${process.env.NEXT_PUBLIC_IMAGE_URL}${props?.img?.url}`} width={100} height={100} alt="img" />
       <p className="mt-3 text-lg">{props?.[`name_${props.lng}`]}</p>
       <a href="#" className="text-[#2EB1FC] text-base">
         {props?.[`specialization_${props.lng}`]}

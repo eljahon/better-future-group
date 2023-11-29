@@ -55,7 +55,7 @@ export default function GlobalProblems({ lng, data }) {
           // data-aos="zoom-in-left" data-aos-easing="ease-out-cubic"
           // data-aos-duration="1000"
           className="img min-[850px]:block hidden w-1/2">
-          <Image src={`http://localhost:1337${data?.img?.url}`} width={100} height={100} className="w-full" alt="img" />
+          <Image src={`${process.env.NEXT_PUBLIC_IMAGE_URL}${data?.img?.url}`} width={100} height={100} className="w-full" alt="img" />
 
         </div>
       </div>
