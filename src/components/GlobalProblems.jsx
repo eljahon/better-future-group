@@ -3,13 +3,14 @@ import Image from "next/image";
 import problems from "../assets/images/problems.png";
 import play from "../assets/images/play.png";
 import TypeWriter from "typewriter-effect";
-// import AOS from 'aos';
-// import 'aos/dist/aos.css';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
-// import gsap from 'gsap';
+;
 import ru from '../app/i18n/locales/ru/translation.json'
 import uz from '../app/i18n/locales/uz/translation.json'
 import en from '../app/i18n/locales/en/translation.json'
+import { useEffect } from "react";
 
 export default function GlobalProblems({ lng, data }) {
   const langData = {
@@ -17,12 +18,15 @@ export default function GlobalProblems({ lng, data }) {
     ru,
     en
   }
+  useEffect(() => {
+    AOS.init();
+  }, [])
   return (
     <div className="home" id="home">
       <div className="flex gap-6 items-center min-[850px]:h-screen overflow-hidden ">
         <div
-          // data-aos="fade-up-right" data-aos-easing="ease-out-cubic"
-          // data-aos-duration="500"
+          data-aos="fade-up-right" data-aos-easing="ease-out-cubic"
+          data-aos-duration="500"
           className="text my-auto min-[850px]:w-1/2 min-[850px]:py-0 py-10">
           <div className="overflow-hidden m-0">
             <h2 className="text-3xl  sm:text-5xl font-bold">
@@ -52,8 +56,8 @@ export default function GlobalProblems({ lng, data }) {
           </div>
         </div>
         <div
-          // data-aos="zoom-in-left" data-aos-easing="ease-out-cubic"
-          // data-aos-duration="1000"
+          data-aos="zoom-in-left" data-aos-easing="ease-out-cubic"
+          data-aos-duration="1000"
           className="img min-[850px]:block hidden w-1/2">
           <Image src={`${process.env.NEXT_PUBLIC_IMAGE_URL}${data?.img?.url}`} width={100} height={100} className="w-full" alt="img" />
 
