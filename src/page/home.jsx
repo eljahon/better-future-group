@@ -1,5 +1,5 @@
 'use client'
-import React, { useRef } from 'react'
+import React, { useEffect, useRef } from 'react'
 import Aboutus from '@/components/Aboutus'
 import Contactus from '@/components/Contactus'
 import Footer from '@/components/Footer'
@@ -11,6 +11,14 @@ import OurProjects from '@/components/OurProjects'
 
 export default function Homepage({ data, lng }) {
 
+    // useEffect(() => {
+    //     (
+    //         async () => {
+    //             const LocomotiveScroll = (await import('locomotive-scroll')).default;
+    //             const locomotiveScroll = new LocomotiveScroll();
+    //         }
+    //     )
+    // }, [])
     return (
         <div >
             <div className="container">
@@ -21,11 +29,11 @@ export default function Homepage({ data, lng }) {
             <div className="bg-our">
                 <OurProjects lng={lng} data={data?.data?.our_project} />
             </div>
-            <div className="container">
+            <div className="container" >
                 <Aboutus lng={lng} data={data?.data?.about_us} />
                 <MeetOurTeam lng={lng} data={data?.data?.team} />
                 <div className="bg-our">
-                    <Contactus lng={lng} />
+                    <Contactus lng={lng} data={data?.data?.about_us} />
                 </div>
             </div>
             <div className="bg-our">

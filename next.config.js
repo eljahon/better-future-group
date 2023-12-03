@@ -3,7 +3,8 @@ const nextConfig = {
     images: {
         domains: [
           "192.168.0.109",
-          "localhost"
+        "localhost",
+          "api.qrserver.com"
         ]
       },
 }

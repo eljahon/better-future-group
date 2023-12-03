@@ -2,6 +2,7 @@ import { Inter } from 'next/font/google'
 import './globals.css'
 import 'swiper/css';
 import { languages } from '../i18n/settings';
+import Head from 'next/head';
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
@@ -16,6 +17,7 @@ export async function generateStaticParams() {
 export default function RootLayout({children,params: {lng}}) {
   return (
     <html lang={lng}>
+   
       <body className={inter.className}>{children}</body>
     </html>
   )

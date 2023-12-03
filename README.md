@@ -2,7 +2,6 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 
 # node -version
-
     20.2.0
 
 ## Getting Started

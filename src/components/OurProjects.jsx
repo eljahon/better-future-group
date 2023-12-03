@@ -10,6 +10,10 @@ import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
 import ru from '../app/i18n/locales/ru/translation.json'
 import uz from '../app/i18n/locales/uz/translation.json'
 import en from '../app/i18n/locales/en/translation.json'
+import { useEffect, useLayoutEffect, useRef } from "react";
+import gsap from "gsap";
+import ScrollTrigger from "gsap/dist/ScrollTrigger"
+
 const ourList = [
   {
     icon: wasteless,
@@ -68,18 +72,34 @@ const settings = {
 
 
 const OurProjects = ({ data, lng }) => {
+  const homesRef = useRef(null)
   const langData = {
     uz,
     ru,
     en
   }
-  return (
-    <div className="container" id="our-projects">
-      <div className="py-6 md:py-16">
-        <h1 className="text-2xl mb-6 md:mb-14 font-semibold">
+  gsap.registerPlugin(ScrollTrigger)
+  useEffect(() => {
 
-          {langData[lng].ourproject}
-        </h1>
+    gsap.fromTo('.words', {
+      y: 100,
+      stagger: 0.2,
+      opacity: 0,
+    }, {
+      duration: 1, delay: .4, y: 0, opacity: 1, ease: "power2.out", scrollTrigger: {
+        trigger: homesRef.current,
+        toggleActions: "restart none none reset",
+
+      }
+    })
+  }, [])
+
+  return (
+    <div ref={homesRef} className="container container__wrap" id="our-projects">
+      <div className="py-6 md:py-16">
+        <div className="w-full overflow-hidden">
+          <h1 className="words text-2xl mb-6 md:mb-14 opacity-0 font-semibold"> {langData[lng].ourproject}</h1>
+        </div>
         <Swiper {...settings} modules={[Navigation, Pagination, Scrollbar, A11y]}>
           {data && data.map((el, index) => (
             <SwiperSlide key={index}>

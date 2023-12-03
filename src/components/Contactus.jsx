@@ -13,7 +13,8 @@ import { SendRequest } from "@/service/api";
 import ru from '../app/i18n/locales/ru/translation.json'
 import uz from '../app/i18n/locales/uz/translation.json'
 import en from '../app/i18n/locales/en/translation.json'
-const Contactus = ({ lng }) => {
+const Contactus = ({ lng, data }) => {
+
   useEffect(() => {
     AOS.init();
   }, [])
@@ -21,8 +22,9 @@ const Contactus = ({ lng }) => {
   const { register, handleSubmit, control, reset } = useForm();
 
   const SendRequestFunc = async (data) => {
+
     setLoading(true)
-    await SendRequest(data)
+    await SendRequest({ data: { ...data } })
       .then(res => {
         console.log(res)
         toast.success("request sended successfully")
@@ -68,7 +70,7 @@ const Contactus = ({ lng }) => {
                   className="p-3 bg bg-[rgb(241,241,241)] outline-none"
                   id="name"
                   type="text"
-                  {...register('name', { required: true })}
+                  {...register('fullname', { required: true })}
                 />
               </div>
               <div data-aos="fade-right" className="flex flex-col">
@@ -91,7 +93,7 @@ const Contactus = ({ lng }) => {
               <button data-aos="fade-right" className="flex justify-center bg-[#2EB1FC] p-4 text-white text-sm font-medium mt-3 cursor-pointer">
 
 
-                {loading ? <Image src={loader} alt={"loading"} width={20} height={20} /> : langData[lng].request}
+                {loading ? <Image src={`https://api.qrserver.com/v1/create-qr-code/?size=256x256&data=${data?.qr_link}`} width={256} height={256} alt={"loading"} /> : langData[lng].request}
 
               </button>
             </form>

@@ -7,13 +7,15 @@ import growz from "../assets/slick/growz.png";
 import trator from "../assets/slick/trator.png";
 import coozin from "../assets/slick/coozin.png";
 import Image from "next/image";
-import AOS from 'aos';
-import 'aos/dist/aos.css';
-import { useEffect } from "react";
+// import AOS from 'aos';
+// import 'aos/dist/aos.css';
 
 import ru from '../app/i18n/locales/ru/translation.json'
 import uz from '../app/i18n/locales/uz/translation.json'
 import en from '../app/i18n/locales/en/translation.json'
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger"
+import { useEffect, useLayoutEffect, useRef } from "react";
 const list = [
     {
         id: 1,
@@ -42,25 +44,52 @@ const list = [
 ];
 
 const OurProducts = ({ data, lng }) => {
-
-    useEffect(() => {
-        AOS.init();
-    }, [])
+    const homeRef = useRef(null)
+    const contentRef = useRef(null)
     const langData = {
         uz,
         ru,
         en
     }
-    return (
-        <div id="our-products">
-            <div>
-                <h1 className="text-2xl mb-6 md:mb-14 font-semibold"> {langData[lng].ourproject}</h1>
+    gsap.registerPlugin(ScrollTrigger)
+    useEffect(() => {
 
-                <div data-aos="fade-right" className="flex gap-5 overflow-x-hidden">
+
+        gsap.fromTo(".card", { x: 0, scale: 0.3 }, {
+            scale: 1, duration: 1, delay: 0, x: 0, ease: "power2.out", scrollTrigger: {
+                trigger: homeRef.current,
+                toggleActions: "restart none none reset"
+            }
+        })
+
+        gsap.fromTo('.word', {
+            y: 100,
+            stagger: 0.2,
+            opacity: 0,
+        }, {
+            duration: 1, delay: 0, y: 0, opacity: 1, ease: "power2.out", scrollTrigger: {
+                trigger: homeRef.current,
+                toggleActions: "restart none none reset",
+
+            }
+        })
+    }, [])
+
+
+    return (
+        <div id="our-products" >
+            <div ref={homeRef} >
+
+                <div className=" w-full overflow-hidden ">
+                    <h1 className="word text-2xl mb-6 md:mb-14 opacity-0 font-semibold"> {langData[lng].ourproduct}</h1>
+                </div>
+                <div
+                    // data-aos="fade-right"
+                    className="flex gap-5 overflow-x-hidden scale-0 card">
                     <Slick>
                         {data.map((el, index) => (
                             <SwiperSlide key={index}>
-                                <div key={index} className="w-full relative">
+                                <div key={index} className="w-full"  >
                                     <Image className="w-full max-h-64" src={`${process.env.NEXT_PUBLIC_IMAGE_URL}${el?.img?.url}`} width={300} height={300} alt={"img"} />
                                     <div className="absolute top-1/2 -translate-y-1/2 left-4 sm:left-6 w-2/5">
                                         <p className="text-white line-clamp-3 sm:line-clamp-none">
