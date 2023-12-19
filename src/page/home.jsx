@@ -23,7 +23,7 @@ export default function Homepage({ data, lng }) {
         <div >
             <div className="container">
                 <Navbar lng={lng} />
-                <GlobalProblems lng={lng} data={data?.data?.home} />
+                {data?.data?.home && <GlobalProblems lng={lng} data={data?.data?.home}/>}
                 <OurProducts lng={lng} data={data?.data?.our_product} />
             </div>
             <div className="bg-our">

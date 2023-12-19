@@ -75,6 +75,7 @@ const OurProducts = ({ data, lng }) => {
         })
     }, [])
 
+    console.log(data)
 
     return (
         <div id="our-products" >

@@ -80,7 +80,9 @@ export default function GlobalProblems({ lng, data }) {
         <div
 
           className="img_content opacity-0 min-[850px]:block hidden w-1/2">
-          <Image src={`${process.env.NEXT_PUBLIC_IMAGE_URL}${data?.img?.url}`} width={100} height={100} className="w-full" alt="img" />
+          {data?.img?.url &&
+              <Image src={`${process.env.NEXT_PUBLIC_IMAGE_URL}${data?.img?.url}`} width={100} height={100}
+                     className="w-full" alt="img"/>}
 
         </div>
       </div>
